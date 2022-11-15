@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "email": "adm@mail.com",
+      "password": "$2a$10$dNp7oVGk1mLpQvwjGZxC9ea1kQEfMWHEOAzuwC08Wq6rIW2Vx6.We",
+      "role": "admin",
+      "id": 1
+    },
+    {
+      "email": "hr@mail.com",
+      "password": "$2a$10$doCik04qZLwRFFguguiwmO25PR4r4Z1aXER3kbWsKPn.2Jzq/rBnm",
+      "role": "hr",
+      "id": 2
+    }
+  ],
+  "employee": [
+    {
+      "name": "John",
+      "nik": "3492834",
+      "id": 1
+    },
+    {
+      "name": "Wick",
+      "nik": "3249321",
+      "id": 2
+    },
+    {
+      "name": "Mark",
+      "nik": "903032",
+      "id": 3
+    },
+    {
+      "name": "Budi",
+      "nik": "11112",
+      "id": 4
+    }
+  ],
+  "place": [
+    {
+      "placeName": "Kantor 1 ",
+      "chief": "Officer 1",
+      "telp": "0223242141",
+      "address": "Address 1",
+      "id": 1
+    },
+    {
+      "placeName": "Kantor 2",
+      "chief": "Officer 2",
+      "telp": "022424200",
+      "address": "Address 2",
+      "id": 2
+    },
+    {
+      "placeName": "Kantor 3",
+      "chief": "Officer 3",
+      "telp": "0223242224",
+      "address": "Address 3",
+      "id": 3
+    },
+    {
+      "placeName": "Kantor 4 - edited",
+      "chief": "Officer 4 - edited",
+      "telp": "022998969",
+      "address": "Address 4 -edited",
+      "id": 4
+    }
+  ],
+  "assets": [
+    {
+      "assetName": "aset 1",
+      "type": "general",
+      "statusAssets": "deployable",
+      "assignTo": "not assign",
+      "editable": true,
+      "id": 1
+    },
+    {
+      "assetName": "aset 2",
+      "assignTo": "assign",
+      "statusAssets": "deployable",
+      "editable": true,
+      "type": "general",
+      "id": 2
+    },
+    {
+      "assetName": "aset 3",
+      "assignTo": "assign",
+      "statusAssets": "deployable",
+      "editable": true,
+      "type": "general",
+      "id": 3
+    },
+    {
+      "assetName": "aset 4",
+      "type": "licences",
+      "statusAssets": "archived",
+      "assignTo": "not assign",
+      "editable": true,
+      "id": 4
+    }
+  ],
+  "assign": [
+    {
+      "selectedAsset": "aset 2",
+      "typeAssign": "employee",
+      "assignName": "John",
+      "idAsset": 2,
+      "idAssignTo": 1,
+      "statusAssign": "check-out",
+      "id": 1
+    },
+    {
+      "selectedAsset": "aset 3",
+      "typeAssign": "place",
+      "assignName": "Kantor 1 ",
+      "idAsset": 3,
+      "idAssignTo": 1,
+      "statusAssign": "check-out",
+      "id": 2
+    }
+  ]
+}
