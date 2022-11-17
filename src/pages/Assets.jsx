@@ -214,43 +214,8 @@ function Assets() {
     }
   };
 
-  // const handleOkEdit = () => {
-  //   if (editable) {
-  //     if (assetName == "" || type == "" || statusAssets == "") {
-  //       setIsError(true);
-  //     } else {
-  //       axios
-  //         .put(`http://localhost:3004/assets/${idEdit}`, {
-  //           assetName,
-  //           type,
-  //           statusAssets,
-  //           assignTo,
-  //           editable,
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //         });
-  //       notification.open({
-  //         message: "Successfully",
-  //         description: "Your request has been done successfully",
-  //         icon: <CheckCircleOutlined style={{ color: "#73d13d" }} />,
-  //       });
-  //       setModalEdit(false);
-  //       getAssets();
-  //     }
-  //   } else {
-  //     notification.open({
-  //       message: "Warning",
-  //       description: "Can't edit the data, because the asset has been assigned",
-  //       icon: <WarningOutlined style={{ color: "#ffa940" }} />,
-  //     });
-  //     setModalEdit(false);
-  //     getAssets();
-  //   }
-  // };
-
   return (
-    <>
+    <div className="container mx-auto max-w-6xl pt-[100px]">
       <div className="bg-white my-6">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-xl m-0">Data Assets</h1>
@@ -447,7 +412,7 @@ function Assets() {
           )}
         </form>
       </Modal>
-    </>
+    </div>
   );
 }
 

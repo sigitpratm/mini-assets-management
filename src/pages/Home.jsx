@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import AuthConsumer from "../hook/auth";
 
 function Home() {
+  let auth = AuthConsumer();
+
   return (
     <>
-      <div>
+      <div className="container mx-auto pt-[100px] max-w-6xl ">
         <p className="text-xl text-center">
-          Welcome to Assets Management System (Mini Project)
+          Assets Management System (Mini Project)
         </p>
       </div>
     </>

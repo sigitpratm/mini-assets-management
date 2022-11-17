@@ -156,7 +156,7 @@ function Place() {
 
   return (
     <>
-      <div className="bg-white my-6">
+      <div className="bg-white my-6 pt-[100px] max-w-6xl container mx-auto">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-xl m-0">Data Place</h1>
           <Button type="primary" onClick={showModalAdd}>

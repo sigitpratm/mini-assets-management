@@ -2,15 +2,20 @@
   "users": [
     {
       "email": "adm@mail.com",
-      "password": "$2a$10$dNp7oVGk1mLpQvwjGZxC9ea1kQEfMWHEOAzuwC08Wq6rIW2Vx6.We",
+      "password": "$2a$10$8lKgHjGOGktBx4Q5sGFaDeeCXYhnH8hOpOI6cLvJUnNLQLUzgGUe.",
       "role": "admin",
       "id": 1
     },
     {
       "email": "hr@mail.com",
-      "password": "$2a$10$doCik04qZLwRFFguguiwmO25PR4r4Z1aXER3kbWsKPn.2Jzq/rBnm",
+      "password": "$2a$10$soCArXyFGfyGnGoH.bSThuNP2mziZ/x2hmS5hyeaaYJcq4P5Qh5me",
       "role": "hr",
       "id": 2
+    },
+    {
+      "email": "user@mail.com",
+      "password": "$2a$10$AwKMSgDWZARsJ0lxtyflsur/spt9CFKODk.eOgcmJf9Z3DotUoKV2",
+      "id": 3
     }
   ],
   "employee": [
@@ -31,7 +36,7 @@
     },
     {
       "name": "Budi",
-      "nik": "11112",
+      "nik": "111112",
       "id": 4
     }
   ],
