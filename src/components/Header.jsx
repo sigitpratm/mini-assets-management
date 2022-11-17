@@ -1,9 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import AuthConsumer from "../hook/auth";
 
 function Header() {
+  let navigate = useNavigate();
+  const [authed, dispatch] = AuthConsumer();
+  const [{ auth }] = AuthConsumer();
+
+  function ActiveLink(props) {
+    return (
+      <NavLink
+        style={({ isActive }) => {
+          return {
+            color: isActive ? "#60a5fa" : "",
+          };
+        }}
+        {...props}
+      />
+    );
+  }
+
   return (
-    <header className="w-full border-b border-gray-300 fixed top-0">
+    <header className="bg-white w-full border-b border-gray-300 fixed top-0">
       <div className="container mx-auto max-w-6xl py-6 flex justify-between">
         <Link to={"/"} className="flex items-center gap-3">
           <svg
@@ -22,19 +40,34 @@ function Header() {
           </svg>
           <span className="font-semibold text-gray-600 text-xl">TitleSite</span>
         </Link>
-        <nav className="flex items-center justify-end gap-12">
-          <Link className="text-gray-600 font-semibold" to={"/assign"}>
-            Assign
-          </Link>
-          <Link className="text-gray-600 font-semibold" to={"/assets"}>
-            Assets
-          </Link>
-          <Link className="text-gray-600 font-semibold" to={"/employee"}>
-            Employee
-          </Link>
-          <Link className="text-gray-600 font-semibold" to={"/place"}>
-            Place
-          </Link>
+        <nav className="flex items-center justify-end gap-8">
+          {auth ? (
+            <>
+              <ActiveLink className="text-gray-500" to={"/assign"}>
+                Assign
+              </ActiveLink>
+              <ActiveLink className="text-gray-500" to={"/assets"}>
+                Assets
+              </ActiveLink>
+              <ActiveLink className="text-gray-500" to={"/employee"}>
+                Employee
+              </ActiveLink>
+              <ActiveLink className="text-gray-500" to={"/place"}>
+                Place
+              </ActiveLink>
+              <button
+                className="broder px-5 bg-blue-500 text-gray-50 rounded-md py-1 transition hover:bg-blue-400"
+                onClick={() => {
+                  dispatch({ type: "logout" });
+                  navigate("/login", { replace: true });
+                }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
         </nav>
       </div>
     </header>

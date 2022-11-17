@@ -1,20 +1,21 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Button, Form, Input } from "antd";
+import { useNavigate } from "react-router-dom";
+import AuthConsumer from "../hook/auth";
+import Cookies from "js-cookie";
 
-function Login({ setRoles, setToken }) {
+function Login() {
+  let navigate = useNavigate();
+  const [authed, dispatch] = AuthConsumer();
+
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    setErrMsg("");
-  }, [email, pwd]);
 
   const handleSubmit = async () => {
     try {
-      const resp = await axios.post(
+      const res = await axios.post(
         "http://localhost:3004/login",
         {
           email: email,
@@ -25,15 +26,19 @@ function Login({ setRoles, setToken }) {
           withCredentials: true,
         }
       );
-      setRoles(resp.data.user.roles);
-      setToken(resp.data.accessToken);
+
+      console.log(res);
+      setErrMsg("");
+      dispatch({ type: "login" });
+      navigate("/", { replace: true });
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data);
+      setErrMsg(err.response.data);
     }
   };
 
   return (
-    <div className="w-full ng-gray-100 flex items-center justify-center">
+    <div className="w-full ng-gray-100 flex items-center justify-center pt-32">
       <div className="border p-8 w-[32rem] mt-20">
         <p className="text-center text-xl mb-8 pb-4 border-b">LOGIN</p>
 
@@ -76,6 +81,7 @@ function Login({ setRoles, setToken }) {
             ]}
           >
             <Input.Password
+              autoComplete="true"
               onChange={(e) => setPwd(e.target.value)}
               value={pwd}
             />
@@ -87,40 +93,13 @@ function Login({ setRoles, setToken }) {
               span: 20,
             }}
           >
+            {errMsg ? <p className="text-red-600">{errMsg}</p> : null}
+
             <Button type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>
         </Form>
-
-        {/* <form onSubmit={handleSubmit}>
-          <div className="space-y-2 flex flex-col mb-6">
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              className="border p-2"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="space-y-2 flex flex-col mb-6">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              className="border p-2"
-              placeholder="Enter password"
-              value={pwd}
-              onChange={(e) => setPwd(e.target.value)}
-            />
-          </div>
-
-          <button className="bg-indigo-500 text-white px-4 py-1 transition hover:bg-indigo-600">
-            Login
-          </button>
-        </form> */}
       </div>
     </div>
   );
